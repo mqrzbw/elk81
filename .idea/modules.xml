@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/elk81.iml" filepath="$PROJECT_DIR$/.idea/elk81.iml" />
+      <module fileurl="file://$PROJECT_DIR$/elk-0.8.1/plugins/org.eclipse.elk.graph/org.eclipse.elk.graph.iml" filepath="$PROJECT_DIR$/elk-0.8.1/plugins/org.eclipse.elk.graph/org.eclipse.elk.graph.iml" />
+      <module fileurl="file://$PROJECT_DIR$/elk-0.8.1/build/parent.iml" filepath="$PROJECT_DIR$/elk-0.8.1/build/parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/elk-0.8.1/plugins/plugins.iml" filepath="$PROJECT_DIR$/elk-0.8.1/plugins/plugins.iml" />
+      <module fileurl="file://$PROJECT_DIR$/elk-0.8.1/test/test.iml" filepath="$PROJECT_DIR$/elk-0.8.1/test/test.iml" />
+    </modules>
+  </component>
+</project>

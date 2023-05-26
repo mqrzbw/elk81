@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="org.eclipse.elk.alg.radial" />
+        <module name="org.eclipse.elk.graph.text.ui" />
+        <module name="org.eclipse.elk.core" />
+        <module name="org.eclipse.elk.alg.graphviz.layouter" />
+        <module name="org.eclipse.elk.graph.json.text.ui" />
+        <module name="org.eclipse.elk.alg.mrtree" />
+        <module name="org.eclipse.elk.targetplatform" />
+        <module name="org.eclipse.elk.alg.force" />
+        <module name="org.eclipse.elk.feature" />
+        <module name="org.eclipse.elk.alg.graphviz.dot" />
+        <module name="org.eclipse.elk.graph" />
+        <module name="org.eclipse.elk.core.meta" />
+        <module name="org.eclipse.elk.alg.spore" />
+        <module name="org.eclipse.elk.sdk.feature" />
+        <module name="org.eclipse.elk.gmf.feature" />
+        <module name="org.eclipse.elk.conn.gmf" />
+        <module name="org.eclipse.elk.alg.disco" />
+        <module name="org.eclipse.elk.core.service" />
+        <module name="org.eclipse.elk.graph.json.text" />
+        <module name="org.eclipse.elk.graph.text.ide" />
+        <module name="org.eclipse.elk.core.meta.ui" />
+        <module name="org.eclipse.elk.core.debug.grandom.ui" />
+        <module name="org.eclipse.elk.alg.common" />
+        <module name="org.eclipse.elk.graph.json.text.ide" />
+        <module name="org.eclipse.elk.graphviz.feature" />
+        <module name="org.eclipse.elk.algorithms.feature" />
+        <module name="org.eclipse.elk.graph.json.feature" />
+        <module name="org.eclipse.elk.core.debug" />
+        <module name="org.eclipse.elk.core.debug.grandom" />
+        <module name="org.eclipse.elk.core.ui" />
+        <module name="org.eclipse.elk.alg.disco.debug" />
+        <module name="org.eclipse.elk.alg.rectpacking" />
+        <module name="org.eclipse.elk.graph.text" />
+        <module name="org.eclipse.elk.alg.layered" />
+        <module name="org.eclipse.elk.ui.feature" />
+        <module name="org.eclipse.elk.graph.json" />
+        <module name="org.eclipse.elk.repository" />
+        <module name="org.eclipse.elk.core.debug.grandom.ide" />
+      </profile>
+      <profile name="Annotation profile for Eclipse Layout Kernel" enabled="true">
+        <sourceOutputDir name="../generated-sources/annotations" />
+        <sourceTestOutputDir name="../generated-test-sources/test-annotations" />
+        <module name="org.eclipse.elk.graph.test" />
+        <module name="org.eclipse.elk.alg.common.test" />
+        <module name="org.eclipse.elk.alg.disco.test" />
+        <module name="org.eclipse.elk.alg.rectpacking.test" />
+        <module name="org.eclipse.elk.shared.test" />
+        <module name="org.eclipse.elk.graph.json.test" />
+        <module name="org.eclipse.elk.alg.test" />
+        <module name="org.eclipse.elk.alg.spore.test" />
+        <module name="org.eclipse.elk.core.test" />
+        <module name="org.eclipse.elk.alg.force.test" />
+        <module name="org.eclipse.elk.alg.layered.test" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
