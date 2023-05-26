@@ -1,0 +1,86 @@
+{{ partial "header" . }}
+
+<div class="container px-3 py-5">
+
+  <div class="row mb-3"><div class="col"><div class="jumbotron">
+    <h1 class="display-4 mb-2">
+      <img src="img/elk.svg" width="80" class="mr-3" style="display: inline-block; vertical-align: baseline;">Eclipse Layout Kernel&trade;
+    </h1>
+    <p class="lead">
+      Ever feel like you spend most of your time getting a diagram’s layout right instead of its content?
+    </p>
+    <a href="https://rtsys.informatik.uni-kiel.de/elklive/" class="btn btn-success">Try it!</a>
+    <a href="./downloads.html" class="btn btn-info">Download</a>
+    <a href="./documentation.html" class="btn btn-warning">Documentation</a>
+    <a href="./support.html" class="btn btn-primary">Support</a>
+
+    <hr class="my-4">
+    <p class="lead">
+      Automatic Layout for Diagrams
+    </p>
+    <p>
+      The Eclipse Layout Kernel (or ELK) is two things:
+      a collection of layout algorithms,
+      and an infrastructure that bridges the gap
+      between layout algorithms and diagram viewers and editors.
+    </p>
+    <p>
+      The drawing below shows an example layout produced with ELK. 
+      It also illustrates some of ELK's special features: 
+      ports (edges' attachment points on the corresponding nodes' borders)
+      and hierarchical nodes (nodes that contain further nodes as children).
+      Note that ELK itself doesn't render the drawing 
+      but only computes positions (and possibly dimensions) for the diagram elements.
+    </p> 
+
+    <img class="img-fluid d-block mx-auto" src="./img/example_layout_complexRouter.svg" style="max-width: 900px;" alt="Example Layout">
+
+    <hr class="my-4">
+    <p class="lead">
+      Happy Users
+    </p>
+
+    <div class="row">
+      <div class="col-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="./img/reel_klassviz.jpg" alt="KlassViz">
+          <div class="card-body">
+            <h4 class="card-title">KlassViz</h4>
+            <p class="card-text">
+              <a href="https://github.com/kieler/klassviz">KlassViz</a>
+              uses automatic layout to generate class diagrams in Eclipse on the fly.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="./img/reel_debukviz.jpg" alt="DebuKViz">
+          <div class="card-body">
+            <h4 class="card-title">DebuKViz</h4>
+            <p class="card-text">
+              <a href="https://github.com/kieler/debukviz">DebuKViz</a>
+              uses automatic layout to generate visualizations of variables
+              in your Java programs while debugging.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="./img/reel_ptolemy.jpg" alt="Ptolemy II">
+          <div class="card-body">
+            <h4 class="card-title">Ptolemy II</h4>
+            <p class="card-text">
+              <a href="http://ptolemy.eecs.berkeley.edu/ptolemyII/index.htm">Ptolemy II</a>
+              uses automatic layout to make developing models graphically easier.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div></div>
+
+</div>
+
+{{ partial "footer" . }}

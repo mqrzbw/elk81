@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2016, 2019 Kiel University and others.
+  
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0.
+  
+  SPDX-License-Identifier: EPL-2.0
+-->
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            category="org.eclipse.elk.core.layout"
+            class="org.eclipse.elk.core.debug.views.graph.LayoutGraphView"
+            icon="icons/graph.gif"
+            id="org.eclipse.elk.debug.graphView"
+            name="Layout Graph"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="false"
+            category="org.eclipse.elk.core.layout"
+            class="org.eclipse.elk.core.debug.views.time.ExecutionTimeView"
+            icon="icons/clock.gif"
+            id="org.eclipse.elk.debug.executionView"
+            name="Layout Time"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="false"
+            category="org.eclipse.elk.core.layout"
+            class="org.eclipse.elk.core.debug.views.log.LayoutLogView"
+            icon="icons/graph.gif"
+            id="org.eclipse.elk.core.debug.logView"
+            name="Layout Log"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.pde.ui.pluginContent">
+      <wizard
+            class="org.eclipse.elk.core.debug.wizard.AlgorithmPluginContentWizard"
+            icon="icons/graph.gif"
+            id="org.eclipse.elk.core.debug.algorithmwizard"
+            java="true"
+            name="Layout Algorithm"
+            pureOSGi="false"
+            rcp="false"
+            requiresActivator="false"
+            ui-content="false">
+            <description>
+                Sets up an ELK Layout Algorithm project.
+            </description>
+      </wizard>
+   </extension>
+
+</plugin>

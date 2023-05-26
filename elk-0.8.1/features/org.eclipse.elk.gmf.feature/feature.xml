@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2016 Kiel University and others.
+  
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0.
+  
+  SPDX-License-Identifier: EPL-2.0
+-->
+<feature
+      id="org.eclipse.elk.gmf.feature"
+      label="Eclipse Layout Kernel (Incubation) - GMF Support"
+      version="0.8.1"
+      provider-name="Eclipse Layout Kernel"
+      plugin="org.eclipse.elk.core">
+
+   <description url="http://www.eclipse.org/elk">
+      The Eclipse Layout Kernel provides automatic layout to diagram
+editors and viewers. This feature adds basic support for using
+automatic layout in GMF-based editors.
+   </description>
+
+   <copyright>
+      Copyright (c) 2008 Kiel University and others.
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License 2.0 which is available at
+http://www.eclipse.org/legal/epl-2.0.
+
+SPDX-License-Identifier: EPL-2.0
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.elk.feature" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gef" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui" version="1.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.render" version="1.2.0" match="greaterOrEqual"/>
+      <import plugin="com.google.guava"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.elk.conn.gmf"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

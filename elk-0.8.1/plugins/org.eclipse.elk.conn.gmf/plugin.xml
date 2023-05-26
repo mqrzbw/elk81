@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2016 Kiel University and others.
+  
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0.
+  
+  SPDX-License-Identifier: EPL-2.0
+-->
+<?eclipse version="3.4"?>
+<plugin>
+ <extension
+       point="org.eclipse.elk.core.service.layoutConnectors">
+    <setup
+          class="org.eclipse.elk.conn.gmf.GmfLayoutSetup">
+    </setup>
+ </extension>
+  <extension
+       point="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders">
+    <editpolicyProvider
+          class="org.eclipse.elk.conn.gmf.LayoutEditPolicyProvider">
+       <Priority
+             name="Lowest">
+       </Priority>
+    </editpolicyProvider>
+ </extension>
+  <extension
+        point="org.eclipse.ui.commands">
+     <command
+           categoryId="org.eclipse.elk.core.layout"
+           defaultHandler="org.eclipse.elk.conn.gmf.LayoutDiagramFileHandler"
+           id="org.eclipse.elk.conn.gmf.layoutDiagramFile"
+           name="Layout Diagram File">
+     </command>
+  </extension>
+ <extension
+       point="org.eclipse.gmf.runtime.diagram.ui.layoutProviders">
+    <layoutProvider
+          class="org.eclipse.elk.conn.gmf.ElkLayoutProvider">
+       <Priority
+             name="High">
+       </Priority>
+    </layoutProvider>
+ </extension>
+
+</plugin>

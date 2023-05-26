@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2016 Kiel University and others.
+  
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0.
+  
+  SPDX-License-Identifier: EPL-2.0
+-->
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            category="org.eclipse.elk.core.layout"
+            class="org.eclipse.elk.alg.disco.debug.views.DisCoDebugView"
+            icon="icons/discodebug.gif"
+            id="org.eclipse.elk.debug.disCoDebugView"
+            name="DisCo Debug Graph"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>

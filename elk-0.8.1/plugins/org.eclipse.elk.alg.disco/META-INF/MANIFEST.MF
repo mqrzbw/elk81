@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.eclipse.elk.alg.disco
+Bundle-ManifestVersion: 2
+Bundle-Name: ELK Disconnected Components Compaction
+Bundle-SymbolicName: org.eclipse.elk.alg.disco;singleton:=true
+Bundle-Version: 0.8.1
+Require-Bundle: com.google.guava,
+ org.eclipse.elk.core,
+ org.eclipse.elk.graph,
+ org.eclipse.elk.alg.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.elk.alg.disco,
+ org.eclipse.elk.alg.disco.graph,
+ org.eclipse.elk.alg.disco.options,
+ org.eclipse.elk.alg.disco.structures,
+ org.eclipse.elk.alg.disco.transform
+Bundle-Vendor: Eclipse Modeling Project
+

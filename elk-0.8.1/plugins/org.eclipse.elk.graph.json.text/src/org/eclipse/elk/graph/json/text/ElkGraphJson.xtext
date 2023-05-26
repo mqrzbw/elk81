@@ -1,0 +1,166 @@
+/*******************************************************************************
+ * Copyright (c) 2020 Kiel University and others.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *******************************************************************************/
+grammar org.eclipse.elk.graph.json.text.ElkGraphJson with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "http://www.eclipse.org/elk/ElkGraph"
+
+/* - - Nodes - - */
+ElkNode returns ElkNode:
+     {ElkNode} '{' (NodeElement (',' NodeElement)*)? ','? '}'
+;
+
+fragment NodeElement returns ElkNode:
+    ElkId
+    | ShapeElement
+    | KeyChildren      ':' ElkNodeChildren
+    | KeyPorts         ':' ElkNodePorts
+    | KeyLabels        ':' ElkGraphElementLabels
+    | KeyEdges         ':' ElkNodeEdges
+    | KeyLayoutOptions ':' ElkGraphElementProperties
+    | JsonMember
+;
+
+/* - - Ports - - */
+ElkPort returns ElkPort:
+    '{' PortElement (',' PortElement)* ','? '}'
+;
+
+fragment PortElement returns ElkPort:
+    ElkId
+    | ShapeElement
+    | KeyLabels        ':' ElkGraphElementLabels
+    | KeyLayoutOptions ':' ElkGraphElementProperties
+    | JsonMember
+;
+
+/* - - Labels - - */
+ElkLabel returns ElkLabel:
+    '{' LabelElement (',' LabelElement)* ','? '}'
+;
+
+fragment LabelElement returns ElkLabel:
+    ElkId
+    | ShapeElement
+    | KeyText          ':' text=STRING
+    | KeyLabels        ':' ElkGraphElementLabels
+    | KeyLayoutOptions ':' ElkGraphElementProperties
+    | JsonMember
+;
+
+/* - - Edges - - */
+ElkEdge returns ElkEdge:
+    '{' EdgeElement (',' EdgeElement)* ','? '}'
+;
+
+fragment EdgeElement returns ElkEdge:
+    ElkId
+    // TODO EdgeLayout
+    | KeySources       ':' ElkEdgeSources
+    | KeyTargets       ':' ElkEdgeTargets
+    | KeyLabels        ':' ElkGraphElementLabels
+    | KeyLayoutOptions ':' ElkGraphElementProperties
+    | JsonMember
+;
+
+/* SuppressWarnings[BidirectionalReference] */
+fragment ElkEdgeSources returns ElkEdge:
+    '[' (sources+=[ElkConnectableShape|STRING] (',' sources+=[ElkConnectableShape|STRING])*)? ','? ']'
+;
+
+/* SuppressWarnings[BidirectionalReference] */
+fragment ElkEdgeTargets returns ElkEdge:
+    '[' (targets+=[ElkConnectableShape|STRING] (',' targets+=[ElkConnectableShape|STRING])*)? ','? ']'
+;
+
+/* - - ElkGraphElement fragments - - */
+fragment ElkId returns ElkGraphElement:
+    KeyId ':' identifier=STRING
+;
+fragment ElkNodeChildren returns ElkNode:
+    '[' (children+=ElkNode (',' children+=ElkNode)*)? ','? ']'
+;
+fragment ElkNodePorts returns ElkNode:
+    '[' (ports+=ElkPort (',' ports+=ElkPort)*)? ','? ']'
+;
+fragment ElkNodeEdges returns ElkNode:
+    '[' (containedEdges+=ElkEdge (',' containedEdges+=ElkEdge)*)? ','? ']'
+;
+fragment ElkGraphElementLabels returns ElkGraphElement:
+    '[' (labels+=ElkLabel (',' labels+=ElkLabel)*)? ','? ']'
+;
+fragment ElkGraphElementProperties returns ElkGraphElement:
+    '{' (properties+=Property (',' properties+=Property)*)? ','? '}'
+;
+
+/* - - Shape - - */
+fragment ShapeElement returns ElkShape:
+    KeyX        ':' x=Number
+    | KeyY      ':' y=Number
+    | KeyWidth  ':' width=Number
+    | KeyHeight ':' height=Number
+;
+
+Property returns ElkPropertyToValueMapEntry:
+    key=PropertyKey ':' (value=StringValue | value=NumberValue | value=BooleanValue)
+;
+
+PropertyKey returns IProperty hidden():
+    STRING | ID
+;
+
+StringValue returns ecore::EJavaObject:
+    STRING
+;
+
+NumberValue returns ecore::EJavaObject:
+    SIGNED_INT | FLOAT
+;
+
+BooleanValue returns ecore::EJavaObject:
+    'true' | 'false';
+
+Number returns ecore::EDouble:
+    SIGNED_INT | FLOAT
+;
+
+terminal SIGNED_INT returns ecore::EInt:
+    ('+'|'-')? INT
+;
+
+terminal FLOAT returns ecore::EDouble:
+    ('+'|'-')? (INT '.' INT | INT ('.' INT)? ('e'|'E') ('+'|'-')? INT)
+;
+
+/* - - Arbitrary JSON (see https://www.json.org/json-en.html) - - */
+JsonObject: '{' (JsonMember (',' JsonMember)*)? ','? '}';
+JsonArray: '[' (JsonValue (',' JsonValue)*)? ','? ']';
+JsonMember: (STRING | ID) ':' JsonValue;
+JsonValue: STRING | Number | JsonObject | JsonArray | BooleanValue | 'null' ;
+
+
+/* - - Keys (allowing single and double quotes) - - */
+KeyChildren: '"children"' | "'children'" | 'children';
+KeyPorts: '"ports"' | "'ports'" | 'ports';
+KeyLabels: '"labels"' | "'labels'" | 'labels';
+KeyEdges: '"edges"' | "'edges'" | 'edges';
+KeyLayoutOptions:
+    '"layoutOptions"' | "'layoutOptions'" | 'layoutOptions'
+    | '"properties"' | "'properties'" | 'properties'
+;
+KeyId: '"id"' | "'id'" | 'id';
+KeyX: '"x"' | "'x'" | 'x';
+KeyY: '"y"' | "'y'" | 'y';
+KeyWidth: '"width"' | "'width'" | 'width';
+KeyHeight: '"height"' | "'height'" | 'height';
+KeySources: '"sources"' | "'sources'" | 'sources';
+KeyTargets: '"targets"' | "'targets'" | 'targets';
+KeyText: '"text"' | "'text'" | 'text';
+

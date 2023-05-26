@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2019 Kiel University and others.
+  This program and the accompanying materials are made available under the
+  terms of the Eclipse Public License 2.0 which is available at
+  http://www.eclipse.org/legal/epl-2.0.
+  
+  SPDX-License-Identifier: EPL-2.0
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.eclipse.elk</groupId>
+  <artifactId>plugins</artifactId>
+  <version>0.8.1</version>
+  <packaging>pom</packaging>
+
+  <parent>
+    <groupId>org.eclipse.elk</groupId>
+    <artifactId>parent</artifactId>
+    <version>0.8.1</version>
+    <relativePath>../build/pom.xml</relativePath>
+  </parent>
+
+  <!-- all plugins need to be listed as module -->
+  <modules>
+    <module>../build/org.eclipse.elk.targetplatform</module>
+    <module>org.eclipse.elk.alg.common</module>
+    <module>org.eclipse.elk.alg.disco</module>
+    <module>org.eclipse.elk.alg.disco.debug</module>
+    <module>org.eclipse.elk.alg.force</module>
+    <module>org.eclipse.elk.alg.radial</module>
+    <module>org.eclipse.elk.alg.graphviz.dot</module>
+    <module>org.eclipse.elk.alg.graphviz.layouter</module>
+    <module>org.eclipse.elk.alg.layered</module>
+    <module>org.eclipse.elk.alg.mrtree</module>
+    <module>org.eclipse.elk.alg.rectpacking</module>
+    <module>org.eclipse.elk.alg.spore</module>
+    <module>org.eclipse.elk.conn.gmf</module>
+    <module>org.eclipse.elk.core</module>
+    <module>org.eclipse.elk.core.debug</module>
+    <module>org.eclipse.elk.core.debug.grandom</module>
+    <module>org.eclipse.elk.core.debug.grandom.ide</module>
+    <module>org.eclipse.elk.core.debug.grandom.ui</module>
+    <module>org.eclipse.elk.core.meta</module>
+    <module>org.eclipse.elk.core.meta.ui</module>
+    <module>org.eclipse.elk.core.service</module>
+    <module>org.eclipse.elk.core.ui</module>
+    <module>org.eclipse.elk.graph</module>
+    <module>org.eclipse.elk.graph.text</module>
+    <module>org.eclipse.elk.graph.text.ide</module>
+    <module>org.eclipse.elk.graph.text.ui</module>
+    <module>org.eclipse.elk.graph.json</module>
+    <module>org.eclipse.elk.graph.json.text</module>
+    <module>org.eclipse.elk.graph.json.text.ide</module>
+    <module>org.eclipse.elk.graph.json.text.ui</module>
+  </modules>
+
+</project>

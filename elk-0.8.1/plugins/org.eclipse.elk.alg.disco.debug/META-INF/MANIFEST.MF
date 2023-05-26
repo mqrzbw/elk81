@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.eclipse.elk.alg.disco.debug
+Bundle-ManifestVersion: 2
+Bundle-Name: ELK DisCo Debugging Utilities
+Bundle-SymbolicName: org.eclipse.elk.alg.disco.debug;singleton:=true
+Bundle-Version: 0.8.1
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: com.google.guava,
+ org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.elk.core,
+ org.eclipse.elk.core.debug,
+ org.eclipse.elk.core.ui,
+ org.eclipse.elk.core.service,
+ org.eclipse.elk.graph,
+ org.eclipse.elk.alg.disco,
+ org.eclipse.elk.alg.common
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.eclipse.elk.alg.disco.debug.DisCoDebugPlugin
+Export-Package: org.eclipse.elk.alg.disco.debug,
+ org.eclipse.elk.alg.disco.debug.views
+Bundle-Vendor: Eclipse Modeling Project

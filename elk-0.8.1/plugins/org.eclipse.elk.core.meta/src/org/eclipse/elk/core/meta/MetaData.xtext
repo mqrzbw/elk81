@@ -1,0 +1,106 @@
+/*******************************************************************************
+ * Copyright (c) 2016 Kiel University and others.
+ * 
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *******************************************************************************/
+grammar org.eclipse.elk.core.meta.MetaData with org.eclipse.xtext.xbase.Xbase
+
+generate metaData "http://www.eclipse.org/elk/MetaData"
+
+MdModel:
+    (
+        'package' name=QualifiedName
+        importSection=XImportSection?
+    	bundle=MdBundle
+    )?;
+
+MdBundle:
+    {MdBundle}
+    (
+        'bundle' '{'
+            (
+                ('label' label=STRING)?
+                & ('metadataClass' targetClass=QualifiedName)?
+                & ('documentationFolder' documentationFolder=Path)?
+                & ('idPrefix' idPrefix=QualifiedName)?
+            )
+        '}'
+    )?
+    members+=MdBundleMember*;
+
+MdBundleMember:
+    MdGroupOrOption | MdAlgorithm | MdCategory;
+
+MdGroupOrOption:
+    MdGroup | MdOption;
+
+MdGroup:
+    'group' name=ID '{'
+        ('documentation' documentation=STRING)?
+        children+=MdGroupOrOption*
+    '}';
+
+MdOption:
+    deprecated?='deprecated'?
+    (advanced?='advanced' | programmatic?='programmatic' | output?='output' | global?='global')?
+    'option' name=ID (':' type=JvmTypeReference)? '{'
+        (
+            ('label' label=STRING)?
+            & ('description' description=STRING)?
+            & ('documentation' documentation=STRING)?   // "@docu/priority.md"
+            & ('default' '=' defaultValue=XExpression)?
+            & ('lowerBound' '=' lowerBound=XExpression)?
+            & ('upperBound' '=' upperBound=XExpression)?
+            & ('targets' targets+=MdOptionTargetType (',' targets+=MdOptionTargetType)*)?
+            & ('legacyIds' legacyIds+=QualifiedName (',' legacyIds+=QualifiedName)*)?
+        )
+        (dependencies+=MdOptionDependency)*
+    '}';
+
+MdOptionDependency:
+    'requires' target=[MdOption|QualifiedName] ('==' value=XExpression)?;
+
+MdAlgorithm:
+    deprecated?='deprecated'?
+    'algorithm' name=ID '(' provider=JvmTypeReference ('#' parameter=ID)? ')' '{'
+        (
+            ('label' label=STRING)?
+            & ('metadataClass' targetClass=QualifiedName)?
+            & ('description' description=STRING)?
+            & ('documentation' documentation=STRING)?
+            & ('category' category=[MdCategory|QualifiedName])?
+            & ('preview' previewImage=Path)?
+            & ('features' supportedFeatures+=MdGraphFeature (',' supportedFeatures+=MdGraphFeature)*)?
+            & ('validator' validator=JvmTypeReference)?
+        )
+        (supportedOptions+=MdOptionSupport)*
+    '}';
+
+MdCategory:
+    deprecated?='deprecated'?
+    'category' name=ID '{'
+        (
+            ('label' label=STRING)?
+            & ('description' description=STRING)?
+            & ('documentation' documentation=STRING)?
+        )
+    '}';
+
+MdOptionSupport:
+    'supports' option=[MdOption|QualifiedName] ('=' value=XExpression)?
+    ('documentation' documentation=STRING)?
+    ;
+
+Path:
+    QualifiedName (('/' | '-') QualifiedName)*;
+
+enum MdOptionTargetType:
+    parents | nodes | edges | ports | labels;
+
+enum MdGraphFeature:
+    self_loops | inside_self_loops | multi_edges | edge_labels | ports | compound
+    | clusters | disconnected;
