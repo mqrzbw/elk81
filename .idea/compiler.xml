@@ -23,6 +23,7 @@
         <module name="org.eclipse.elk.gmf.feature" />
         <module name="org.eclipse.elk.conn.gmf" />
         <module name="org.eclipse.elk.alg.disco" />
+        <module name="elk81" />
         <module name="org.eclipse.elk.core.service" />
         <module name="org.eclipse.elk.graph.json.text" />
         <module name="org.eclipse.elk.graph.text.ide" />

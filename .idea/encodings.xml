@@ -107,5 +107,7 @@
     <file url="file://$PROJECT_DIR$/elk-0.8.1/test/org.eclipse.elk.shared.test/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/elk-0.8.1/test/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/elk-0.8.1/test/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
 </project>
