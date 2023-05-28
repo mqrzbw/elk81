@@ -25,6 +25,9 @@
     <tycho-version>1.6.0</tycho-version>
     <xtext-version>2.20.0</xtext-version>
     <elk-version>${project.version}</elk-version>
+    <!-- Added for Intellij operation -->
+    <tests.paths.elk-repo>C:\Users\mklnt\git\elk81\elk-0.8.1\test</tests.paths.elk-repo>
+    <tests.paths.models-repo>C:\Users\mklnt\git\elk-models</tests.paths.models-repo>
 
     <!-- chsch: copied from https://eclipse.googlesource.com/recommenders/org.eclipse.recommenders/+/3dae4575d3370da2da25a1cbce3dfcff198f0611/features/pom.xml -->
     <!-- Non-breakable space, as normal spaces are trimmed. -->
@@ -70,6 +73,7 @@
 
     <!-- Activate to have the generated artifacts signed by Eclipse. -->
     <!-- Only works if the build is run on the Eclipse infrastructure. -->
+    <!-- Removed for Intellij operation
     <profile>
       <id>sign</id>
 
@@ -92,7 +96,7 @@
         </plugins>
       </build>
     </profile>
-
+-->
     <!-- The Maven publishing configuration. -->
     <profile>
       <id>maven-publish</id>
@@ -154,7 +158,9 @@
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>target-platform-configuration</artifactId>
         <version>${tycho-version}</version>
-        <configuration>
+
+          <!-- Remove for Intellij operation
+          <configuration>
           <target>
             <artifact>
               <groupId>org.eclipse.elk</groupId>
@@ -180,6 +186,7 @@
             </environment>
           </environments>
         </configuration>
+        -->
       </plugin>
 
       <!-- Build source plugin bundles -->
@@ -211,8 +218,10 @@
                https://stackoverflow.com/questions/3365628/junit-tests-pass-in-eclipse-but-fail-in-maven-surefire -->
           <!-- parallel>classes</parallel -->
           <!-- threadCount>4</threadCount -->
+          <!-- Remove for Intellij operation
           <reuseForks>false</reuseForks>
           <forkCount>1</forkCount>
+        -->
           <excludes>
             <exclude>**/TestUtil.java</exclude>
           </excludes>
@@ -397,7 +406,7 @@
       <url>https://repo.maven.apache.org/maven2</url>
       <layout>default</layout>
       <snapshots>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
       </snapshots>
     </pluginRepository>
 
